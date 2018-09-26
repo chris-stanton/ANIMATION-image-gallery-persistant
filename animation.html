@@ -1,0 +1,105 @@
+
+
+<!DOCTYPE html>
+<html ng-app="myApp" lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gallery Animation(persistant images)</title>
+      <style>
+        body {
+          background: #111;
+          font-family: Avenir, Arial, sans-serif;
+        }
+        div#church-container {
+          background: #111;
+          overflow: hidden;
+          position: relative;
+          width: 80%;
+          margin: 0 auto;
+          max-width: 1000px;
+        }
+        div#church-container input[type="radio"] { display: none; }
+        div#church-container label img {
+         width: 20%;
+         display: block;
+         float: left;
+         clear: left;
+         border-right: 40px solid #111;
+        }
+        div#church-container label:hover { cursor: pointer;
+        }
+        div#churches {
+         width: 90%;
+         position: relative;
+         margin-left: 22.5%;
+        }
+        div#churches figure {
+         margin: 0;
+         position: absolute;
+         height: 100%;
+         opacity: 0;
+         transform: scale(.8);
+         transition: .5s all linear;
+         width: 100%;
+        }
+        div#churches figure img {
+         width: 100%;
+        }
+        div#churches figure figcaption {
+         position: relative;
+         background: rgba(0,0,0,.6);
+         color: #fff;
+         font-size: 1rem;
+         padding: 1rem;
+         transition: 1s 1s all linear;
+         margin-top: 1.6rem;
+         line-height: 1.4;
+         text-align: left;
+        }
+        #vallbona:checked~#churches #monges,
+        #woodward:checked~#churches #presby,
+        #woodward2:checked~#churches #presby2 {
+         opacity: 1;
+         transform: scale(1);
+        }
+        #vallbona:checked~#churches #monges figcaption,
+        #woodward:checked~#churches #presby figcaption,
+        #woodward2:checked~#churches #presby2 figcaption {
+          top: -5rem;
+        }
+      </style>
+  </head>
+  <body>
+    <div id="church-container">
+      <label for="vallbona">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/vallbona-de-les-monges_thumb.jpg" alt>
+      </label>
+      <input type="radio" id="vallbona" name="churchy">
+
+      <label for="woodward">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/woodward-avenue-presbyterian_thumb.jpg">
+      </label>
+      <input type="radio" id="woodward" name="churchy" checked>
+
+      <label for="woodward2">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/woodward-avenue-presbyterian2_thumb.jpg" alt></label>
+      <input type="radio" id="woodward2" name="churchy">
+      <div id="churches">
+        <figure id="monges">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/vallbona-de-les-monges.jpg" alt="Photograph of a corridor in Vallbona de les monges Monastery, Catalonia, Spain by José Luis Mieza">
+          <figcaption>Vallbona de les monges Monastery, Catalonia, Spain</figcaption>
+        </figure>
+        <figure id="presby">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/woodward-avenue-presbyterian.jpg" alt="Interior photograph of Woodward Avenue Presbyterian Church in Detroit Michigan by Rich Harris">
+          <figcaption>Woodward Avenue Presbyterian Church, Detroit Michigan</figcaption>
+        </figure>
+        <figure id="presby2">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/woodward-avenue-presbyterian2.jpg" alt="Interior photograph of Woodward Avenue Presbyterian Church in Detroit Michigan by Rich Harris">
+          <figcaption>Woodward Avenue Presbyterian Church, Detroit Michigan</figcaption>
+        </figure>
+      </div>
+    </div>
+  </body>
+</html>
